@@ -18,6 +18,9 @@ public class Dialog : MonoBehaviour
     [SerializeField]
     GameObject Anwser;
 
+    [SerializeField]
+    Dialog_Manager_Puzzle manager;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -53,6 +56,7 @@ public class Dialog : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
+            manager.TallkSoundPlay();
             TextComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
@@ -69,6 +73,7 @@ public class Dialog : MonoBehaviour
         else
         {
             Anwser.SetActive(true);
+            manager.TallkSoundStop();
         }
     }
 }

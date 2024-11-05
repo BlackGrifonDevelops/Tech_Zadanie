@@ -21,6 +21,8 @@ public class Dialog_Manager_Puzzle : MonoBehaviour
     [SerializeField]
     int anwserNumber;
 
+    public AudioSource Talk;
+
     int numberOfTry;
 
     bool firstTimeDialog = true;
@@ -106,6 +108,14 @@ public class Dialog_Manager_Puzzle : MonoBehaviour
         numberOfTry++;
     }
 
+    public void TallkSoundPlay()
+    {
+        Talk.Play();
+    }
+    public void TallkSoundStop()
+    {
+        Talk.Stop();
+    }
 
 
 

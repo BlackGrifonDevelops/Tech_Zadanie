@@ -42,6 +42,7 @@ public class CharacterMovement : MonoBehaviour
     public bool interactPressed;
     public bool LMBPressed;
     public bool InDialog = false;
+    
 
 
 
@@ -92,7 +93,17 @@ public class CharacterMovement : MonoBehaviour
         //Debug.Log(input.PlayerActions.Interact.WasPerformedThisFrame());
         //Debug.Log(characterController.isGrounded);
 
+
+
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (currentMovement != null)
+        {
+            
+        }
     }
 
     void MovementHandler()
@@ -164,10 +175,14 @@ public class CharacterMovement : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+            
         }
         else
         {
             animator.SetBool("IsMoving", false);
+
+            
         }
     }
 
@@ -177,6 +192,9 @@ public class CharacterMovement : MonoBehaviour
         velocity.y = ySpeed * Time.deltaTime;
 
         characterController.Move(velocity);
+
+        
+
     }
 
     //private void OnApplicationFocus(bool focus)
